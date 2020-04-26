@@ -1,4 +1,5 @@
 #include "histogram.h"
+#include "svg.h"
 #include <cassert>
 
 void
@@ -41,6 +42,17 @@ void test_empty() {
     assert(max == 0);
 }
 
+void test_findmax() {
+    //TEST1
+    double max = find_max({2, 5, 3});
+    assert(max == 5);
+
+    //TEST2
+    vector<size_t> bins = {100, 4, 0, 25};
+    assert (find_max(bins) == 100);
+
+}
+
 int
 main() {
     test_positive();
@@ -48,4 +60,5 @@ main() {
     test_same();
     test_one();
     test_empty();
+    test_findmax();
 }

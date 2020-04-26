@@ -84,5 +84,6 @@ int main() {
 
     show_histogram_svg(bins);
 
+
     return 0;
 }
