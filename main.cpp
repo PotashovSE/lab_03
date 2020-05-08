@@ -7,10 +7,10 @@
 using namespace std;
 
 
-vector<double> input_numbers(const size_t count) {
+vector<double> input_numbers(istream& in,size_t count) {
     vector<double> result(count);
     for (size_t i = 0; i < count; i++) {
-        cin >> result[i];
+        in >> result[i];
     }
 
     return result;
@@ -73,7 +73,7 @@ int main() {
     cin >> number_count;
 
     cerr << "Enter numbers: ";
-    const auto numbers = input_numbers(number_count);
+    const auto numbers = input_numbers(cin, number_count);
 
 
     size_t bin_count;
