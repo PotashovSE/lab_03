@@ -16,21 +16,25 @@ vector<double> input_numbers(istream& in,size_t count) {
 }
 
 Input
-read_input(istream& in) {
+read_input(istream& in, bool prompt) {
     Input data;
-
-    cerr << "Enter number count: ";
     size_t number_count;
-    cin >> number_count;
+    if (prompt){
+        cerr << "Enter number count: ";
+        in >> number_count;
 
-    cerr << "Enter numbers: ";
-    data.numbers = input_numbers(in, number_count);
+        cerr << "Enter numbers: ";
+        data.numbers = input_numbers(in, number_count);
 
-    cerr << "Enter bin count: ";
-    size_t bin_count;
-    cin >> bin_count;
-    data.bin_count =bin_count;
-
+        cerr << "Enter column count: ";
+        in >> data.bin_count;
+    }
+    else
+    {
+        in >> number_count;
+        data.numbers = input_numbers(in, number_count);
+        in >> data.bin_count;
+    }
     return data;
 }
 
@@ -55,7 +59,7 @@ vector<size_t> make_histogram (struct Input data) {
 int main() {
 
 
-    const auto input = read_input (cin);
+    const auto input = read_input (cin, false);
     const auto bins = make_histogram(input);
 
     show_histogram_svg(bins);
