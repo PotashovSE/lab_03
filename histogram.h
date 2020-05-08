@@ -3,7 +3,10 @@
 #include <vector>
 
 using namespace std;
-
-void find_minmax (const vector<double>& numbers, double& min, double& max);
+struct Input {
+    vector<double> numbers;
+    size_t bin_count;
+};
+void find_minmax (const vector<double>& numbers,double& min,double& max);
 
 #endif // HISTOGRAM_H_INCLUDED
