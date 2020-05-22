@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include "histogram.h"
 using namespace std;
 
 void svg_begin(double width, double height);
