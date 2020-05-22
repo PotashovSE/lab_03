@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <windows.h>
 #include "histogram.h"
 #include "svg.h"
 
@@ -67,7 +68,23 @@ void show_histogram_text(vector<size_t> bins) {
 
 }
 
+
 int main() {
+    DWORD mask = 0x0000ffff;
+    DWORD mask_major = 0x000000ff;
+    DWORD info = GetVersion();
+    DWORD platform = info >> 16;
+    DWORD version = info & mask;
+    DWORD version_major = version & mask_major;
+    DWORD version_minor = version >> 8;
+    printf("Windows decimal-version is %u.\n", version);
+    printf("Windows 16-x version is %x.\n", version);
+    printf("Platform is %u.\n", platform);
+    printf("Windows major version is %u.\n", version_major);
+    printf("Windows minor version is %u.\n", version_minor);
+    return 0;
+
+
     size_t number_count;
     cerr << "Enter number count: ";
     cin >> number_count;
