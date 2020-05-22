@@ -82,8 +82,14 @@ int main() {
     printf("Platform is %u.\n", platform);
     printf("Windows major version is %u.\n", version_major);
     printf("Windows minor version is %u.\n", version_minor);
+    if ((info & 0x40000000) == 0)
+    {
+        DWORD build = platform;
+        printf("Windows build is %u.\n", build);
+        printf("Windows v%u.%u (build %u)\n",version_major,version_minor,platform);
+    }
+    printf("Windows v%u.%u (build %u)\n",version_major,version_minor,platform);
     return 0;
-
 
     size_t number_count;
     cerr << "Enter number count: ";
