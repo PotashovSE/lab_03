@@ -5,5 +5,6 @@
 using namespace std;
 
 void find_minmax (const vector<double>& numbers, double& min, double& max);
+void show_histogram_text(vector<size_t> bins);
 
 #endif // HISTOGRAM_H_INCLUDED
