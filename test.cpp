@@ -52,6 +52,13 @@ void test_findmax() {
     assert (find_max(bins) == 100);
 
 }
+void test_empty2(){
+    double max ;
+    max = find_max({});
+
+    assert (max == 0);
+
+}
 
 int
 main() {
@@ -61,4 +68,5 @@ main() {
     test_one();
     test_empty();
     test_findmax();
+    test_empty2();
 }
