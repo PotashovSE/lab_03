@@ -46,7 +46,7 @@ double find_max(const vector<size_t>& bins) {
 }
 
 
-void show_histogram_svg(const vector<size_t>& bins) {
+void show_histogram_svg(const vector<size_t>& bins, string stroke) {
     const auto IMAGE_WIDTH = 400;
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 10;
@@ -84,7 +84,7 @@ void show_histogram_svg(const vector<size_t>& bins) {
         size_t height = bin*BLOCK_HEIGHT*factor;
 
         svg_text(top + TEXT_LEFT,height_max+TEXT_BASELINE, to_string(bin));
-        svg_rect(TEXT_WIDTH, height_max - height, BIN_HEIGHT, height,"red","#aab5ff");
+        svg_rect(TEXT_WIDTH, height_max - height, BIN_HEIGHT, height,stroke,"#aab5ff");
         top += BIN_HEIGHT;
         TEXT_WIDTH+= BIN_HEIGHT;
     }
