@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include "histogram.h"
 #include <windows.h>
 #include <sstream>
@@ -22,6 +23,8 @@ void find_minmax (const vector<double>& numbers, double& min, double& max) {
     }
 
 }
+
+
 
 string information_system()
 {
@@ -48,5 +51,41 @@ string information_system()
     GetComputerNameA(get_computer_name, &size);
     buffer << "Computer name:" << get_computer_name << "\n";
     return buffer.str();
+
+}
+
+
+void show_histogram_text(vector<size_t> bins) {
+    const size_t SCREEN_WIDTH = 80;
+    const size_t MAX_ASTERISK = SCREEN_WIDTH - 4 - 1;
+
+    size_t max_count = 0;
+    for (size_t count : bins) {
+        if (count > max_count) {
+            max_count = count;
+        }
+    }
+    const bool scaling_needed = max_count > MAX_ASTERISK;
+
+    for (size_t bin : bins) {
+        if (bin < 100) {
+            cout << ' ';
+        }
+        if (bin < 10) {
+            cout << ' ';
+        }
+        cout << bin << "|";
+
+        size_t height = bin;
+        if (scaling_needed) {
+            const double scaling_factor = (double)MAX_ASTERISK / max_count;
+            height = (size_t)(bin * scaling_factor);
+        }
+
+        for (size_t i = 0; i < height; i++) {
+            cout << '*';
+        }
+        cout << '\n';
+    }
 
 }

@@ -41,7 +41,7 @@ read_input(istream& in, bool prompt) {
     return data;
 }
 
-vector<size_t> make_histogram (struct Input data) {
+vector<size_t> make_histogram (const Input data) {
     vector<size_t> result(data.bin_count);
     double min;
     double max;

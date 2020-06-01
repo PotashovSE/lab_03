@@ -10,6 +10,7 @@ struct Input {
     size_t bin_count;
 };
 void find_minmax (const vector<double>& numbers, double& min, double& max);
+void show_histogram_text(vector<size_t> bins);
 string information_system();
 
 #endif // HISTOGRAM_H_INCLUDED
